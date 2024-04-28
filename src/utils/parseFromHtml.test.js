@@ -76,6 +76,16 @@ const cases = [
       expect(result.content).toEqual(expect.stringContaining('<a target="_blank" href="https://somewhere.com/dict/watermelon">'))
     },
   },
+  {
+    input: {
+      desc: 'a webpage with img tag with data:image',
+      html: readFileSync('./test-data/html-with-data-image.html', 'utf8'),
+      url: 'https://freegeektime.com/100038501/158846/',
+    },
+    expectation: (result, expect) => {
+      expect(result.content).toEqual(expect.stringContaining('data:image/webp;base64,UklGRrA'))
+    },
+  },
 ]
 
 cases.forEach((acase) => {
