@@ -11,6 +11,7 @@ export const purify = (html) => {
     allowedTags: false,
     allowedAttributes: false,
     allowVulnerableTags: true,
+    allowedSchemes: sanitize.defaults.allowedSchemes.concat(['data']),
   })
 }
 

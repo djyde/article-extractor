@@ -1,6 +1,7 @@
 // config.js
 
 import { clone } from 'bellajs'
+import sanitize from 'sanitize-html'
 
 const sanitizeHtmlOptions = {
   allowedTags: [
@@ -40,6 +41,7 @@ const sanitizeHtmlOptions = {
     iframe: ['src', 'frameborder', 'height', 'width', 'scrolling', 'allow'],
     svg: ['width', 'height'], // sanitize-html does not support svg fully yet
   },
+  allowedSchemes: sanitize.defaults.allowedSchemes.concat(['data']),
   allowedIframeDomains: [
     'youtube.com', 'vimeo.com', 'odysee.com',
     'soundcloud.com', 'audius.co',
